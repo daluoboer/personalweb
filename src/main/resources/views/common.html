@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="commonHeader(title)">
+    <title th:text="${title}"></title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div th:fragment="commonNav">
+    <div class="masthead clearfix">
+        <div class="inner">
+            <h3 class="masthead-brand"><a href="/">首页</a></h3>
+            <nav>
+                <ul class="nav masthead-nav" id="nav">
+                    <li class="active"><a href="goProgramming">程序员日常</a></li>
+                    <li><a href="goLove">我爱艺术</a></li>
+                    <li><a href="goChatterbox">一只话痨</a></li>
+                    <li><a href="goBoring">无聊得很</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<footer th:fragment="commonFooter">
+    <div class="mastfoot">
+        <div class="inner">
+            <p>Cover template for <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, by <a href="https://github.com/Radishsidar" target="_blank">@Radish</a>.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

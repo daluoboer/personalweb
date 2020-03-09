@@ -1,0 +1,15 @@
+CREATE TABLE user
+(
+    user_id bigint PRIMARY KEY COMMENT '用户Id' AUTO_INCREMENT,
+    user_name varchar(50) NOT NULL COMMENT '用户名',
+    user_password varchar(50) NOT NULL COMMENT '密码',
+    user_mail varchar(50) COMMENT '用户邮箱',
+    user_phone varchar(50) COMMENT '用户手机',
+    user_birthday date COMMENT '用户生日',
+    user_sex int NULL COMMENT '性别',
+    user_remark varchar(100) COMMENT '备注'
+);
+ALTER TABLE radish_user COMMENT = '用户表';
+
+
+
