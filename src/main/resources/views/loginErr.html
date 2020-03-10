@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::commonHeader(~{::title},~{::link})">
+    <title>大萝卜大大大萝卜的地盘</title>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/main.css" th:href="@{/static/css/main.css}" />
+</head>
+<head>
+    <title>Error page</title>
+    <meta charset="utf-8" />
+</head>
+<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+<h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
+<p th:utext="${errorMessage}">Error java.lang.NullPointerException</p>
+<a href="index.html" th:href="@{/index.html}">Back to Home Page</a>
+</body>
+</html>

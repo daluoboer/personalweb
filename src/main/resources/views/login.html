@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::commonHeader(~{::title},~{::link})">
+    <title>Login</title>
+    <link rel="icon" href="/static/image/favicon.ico">
+    <!-- Custom styles for this template -->
+    <link th:href="@{static/css/signin.css}" rel="stylesheet" type="text/css">
+</head>
+<script th:inline="javascript">
+    var message = [[${message}]];
+    console.log(message);
+</script>
+<body>
+
+<div class="container">
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <h2 class="form-signin-heading">
+            <p th:text="${param.message}"></p>
+
+            </h2>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+        <br>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required><br>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit"><a href="goRegister">注册</a></input>
+        <!--<input type="submit" value="Log in" />-->
+    </form>
+
+</div> <!-- /container -->
+
+
+</body>
+
+</html>

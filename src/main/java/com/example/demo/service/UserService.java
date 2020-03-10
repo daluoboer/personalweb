@@ -15,4 +15,6 @@ public interface UserService {
     UserEntity selectUserByName(String name);
 
     UserEntity selectUserByExample(UserEntityExample example);
+
+    Integer insertUser(UserEntity entity);
 }

@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
         criteria.andUserNameEqualTo(name);
         return selectUserByExample(example);
     }
+
+    @Override
+    public Integer insertUser(UserEntity entity) {
+        return userEntityMapper.insertSelective(entity);
+    }
 }

@@ -42,27 +42,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     //重写configure(HttpSecurity http)的方法，这里面来自定义自己的拦截方法和业务逻辑
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests()
-//                .antMatchers("/js/**","/css/**","/images/*","/fonts/**","/**/*.png","/**/*.jpg").permitAll()
-                .antMatchers("/login").permitAll()
-//                .antMatchers("/","/login","/signin").permitAll()未登录时这几个页面都可以进（未拦截）
-                .anyRequest().authenticated()
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/login","/goRegister","/register").permitAll()
+                .and().authorizeRequests().anyRequest().hasRole("USER")
                 .and()
                 .formLogin()
-//                .loginPage("/login")
-                .failureUrl("/login?error")
+                .loginPage("/login")
+                .failureUrl("/loginError")
                 .defaultSuccessUrl("/")
-                .permitAll()
-                .and()
-                .rememberMe().rememberMeParameter("remember-me") //其实默认就是remember-me，这里可以指定更换
+//                .permitAll()
+//                .and()
+//                .rememberMe().rememberMeParameter("remember-me") //其实默认就是remember-me，这里可以指定更换
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-//                .logoutSuccessUrl("/logout")  //退出登录，好奇怪，把这个放出来，就一直在确认退出那个页面
-                .permitAll();//这是啥意思啊，退出后其他页面就访问不了啦，那这个permitAll还有啥意义呀，而且上面那个url也根本不是退出成功的页面啊，退出是成功了但是一个报错页
-                /*.and()
-                .csrf().disable();*/
+                .permitAll()//这是啥意思啊，退出后其他页面就访问不了啦，那这个permitAll还有啥意义呀，而且上面那个url也根本不是退出成功的页面啊，退出是成功了但是一个报错页
+                .and()
+                .csrf().disable();
 
     }
     @Override
