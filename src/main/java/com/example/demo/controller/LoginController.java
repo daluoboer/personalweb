@@ -8,6 +8,8 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
     @Autowired
     private UserService userService;
+
+    private final static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping("/login")
     public String login(){
@@ -48,12 +52,12 @@ public class LoginController {
     ){
         model.addAttribute("message","注册成功,请通过用户名登录");
         model.addAttribute("mm","you succeed!");
-        System.out.println("注册ing...");
+        logger.info("注册ing...");
         UserEntity entity = new UserEntity();
         entity.setUserName(username);
         entity.setUserPassword(password);
         userService.insertUser(entity);
-        System.out.println(username + "注册成功");
+        logger.info(username + "注册成功");
         return "redirect:/login";
     }
 }
