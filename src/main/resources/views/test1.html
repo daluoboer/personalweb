@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="common::commonHeader(~{::title},~{::link})">
+  <title>我爱艺术</title>
+
+  <!-- Custom styles for this template -->
+  <link th:href="@{/static/css/cover.css}" rel="stylesheet">
+</head>
+<body>
+<div class="site-wrapper">
+
+  <div class="site-wrapper-inner">
+
+    <div class="cover-container">
+      <!--<div th:include="common::commonNav"></div>-->
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand"><a href="/">首页</a></h3>
+          <nav>
+            <ul class="nav masthead-nav" id="nav">
+              <li><a href="goProgramming">程序员日常</a></li>
+              <li class="active"><a href="goLove">我爱艺术</a></li>
+              <li><a href="goChatterbox">一只话痨</a></li>
+              <li><a href="goBoring">无聊得很</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="inner cover">
+        <h1 class="cover-heading">Cover your page.</h1>
+        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-default">Learn more</a>
+        </p>
+      </div>
+
+      <div th:include="common::commonFooter"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+</body>
+</html>

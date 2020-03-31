@@ -7,6 +7,7 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,6 +34,8 @@ public class UserServiceImpl implements UserService {
         return userEntities.get(0);
     }
 
+//    @Transactional
+    @Transactional
     @Override
     public UserEntity selectUserByName(String name) {
         UserEntityExample example = new UserEntityExample();
