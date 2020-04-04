@@ -5,7 +5,11 @@ import com.example.demo.entity.UserEntityExample;
 import com.example.demo.mapper.UserEntityMapper;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 
 import javax.transaction.Transactional;
 import java.util.Collections;
@@ -17,6 +21,8 @@ import java.util.List;
  * @Date 2020/3/5
  */
 @Service
+@Component
+@Repository
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserEntityMapper userEntityMapper;
